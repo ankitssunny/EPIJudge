@@ -8,11 +8,29 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 public class EvenOddArray {
+  // Page 60
 
   public static void evenOdd(List<Integer> A) {
+
+    int evenIndex = 0, oddIndex = A.size() - 1;
+
+    while (evenIndex <= oddIndex) {
+      if(A.get(evenIndex) % 2 == 0) {
+        evenIndex++;
+      }
+      else {
+        int temp = A.get(evenIndex);
+        A.set(evenIndex, A.get(oddIndex));
+        A.set(oddIndex, temp);
+        oddIndex--;
+      }
+    }
+
+    A =  new ArrayList<Integer>();
     // TODO - you fill in here.
-    return;
+    return ;
   }
+
   @EpiTest(testDataFile = "even_odd_array.tsv")
   public static void evenOddWrapper(TimedExecutor executor, List<Integer> A)
       throws Exception {

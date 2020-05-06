@@ -9,8 +9,12 @@ import java.util.List;
 public class DutchNationalFlag {
   public enum Color { RED, WHITE, BLUE }
 
+  // Page 62
+
   public static void dutchFlagPartition(int pivotIndex, List<Color> A) {
     // TODO - you fill in here.
+
+    
     return;
   }
   @EpiTest(testDataFile = "dutch_national_flag.tsv")

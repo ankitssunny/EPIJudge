@@ -7,7 +7,6 @@ public class RemoveDuplicatesFromSortedList {
   public static ListNode<Integer> removeDuplicates(ListNode<Integer> L) {
     // TODO - you fill in here.
 
-    System.out.println("L is: " +L);
     if ( L == null ||  L.size() < 2 || (L.size() == 1 && L.data == 0) ) return L;
 
     ListNode curr = L;

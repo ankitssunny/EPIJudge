@@ -11,8 +11,9 @@ public class BuyAndSellStock {
     Double minimum = prices.get(0), maxProfit = 0.0;
 
     for(Double price: prices) {
-      minimum = Math.min(price, minimum);
       maxProfit = Math.max(maxProfit, (price - minimum));
+
+      minimum = Math.min(price, minimum);
     }
     return maxProfit;
   }

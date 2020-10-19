@@ -13,47 +13,22 @@ public class DutchNationalFlag {
   // Page 62
 
   public static void dutchFlagPartition(int pivotIndex, List<Color> A) {
-    // TODO - you fill in here.
 
-    int startIndex = 0, lastIndex = A.size() - 1;
-    Color pivotColor = A.get(pivotIndex);
-
-    for (int i = 0; i < A.size() ; i++) {
-      if(A.get(i).ordinal() < pivotColor.ordinal()) {
-          Color temp = A.get(startIndex);
-          A.set(startIndex, A.get(i));
-          A.set(i, temp);
-          startIndex++;
+    int smaller = 0, larger = A.size() , equal = 0;
+    Color pivot = A.get(pivotIndex);
+    while (equal < larger) {
+      if (A.get((equal)).ordinal() < pivot.ordinal()) {
+          Collections.swap(A, smaller++, equal++);
       }
-    }
-
-    for (int i = A.size() - 1; i >= 0 ; i--) {
-      if(A.get(i).ordinal() > pivotColor.ordinal()) {
-        Color temp = A.get(lastIndex);
-        A.set(lastIndex, A.get(i));
-        A.set(i, temp);
-        lastIndex--;
-      }
-    }
-
-    /*
-    // One pass one loop solution
-    int less = 0, equal = 0, more = A.size();
-
-    while(equal < more) {
-      if (A.get(equal).ordinal() < pivotColor.ordinal()) {
-        Collections.swap(A, less++, equal++);
-      }
-      else if(A.get(equal).ordinal() == pivotColor.ordinal()) {
-        ++equal;
+      else if (A.get((equal)).ordinal() == pivot.ordinal()) {
+         ++equal;
       }
       else {
-        Collections.swap(A, equal, --more);
-      }
+        Collections.swap(A, equal, --larger);      }
     }
-*/
     return;
   }
+
   @EpiTest(testDataFile = "dutch_national_flag.tsv")
   public static void dutchFlagPartitionWrapper(TimedExecutor executor,
                                                List<Integer> A, int pivotIdx)

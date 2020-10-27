@@ -59,7 +59,7 @@ public class IntAsArrayIncrement {
 
     // Simpler and faster by twice than above, solved myself after reading up a solution a day before
     // so a lil muscle memory but lots of paper solving, Be good to yourself
-    int lastIndex = A.size() - 1;
+    /*int lastIndex = A.size() - 1;
     A.set(lastIndex, A.get(lastIndex) + 1 );
 
     for (int i = lastIndex - 1; i >= 0 ; i--) {
@@ -75,6 +75,28 @@ public class IntAsArrayIncrement {
       A.set(0, 1);
     }
 
+    return A;*/
+
+
+
+    boolean increaseArr = false;
+    for(int i = A.size() - 1; i >= 0; i--) {
+
+      if (A.get(i) == 9) {
+        A.set(i, 0);
+        if (i == 0) {
+          increaseArr = true;
+        }
+      }
+      else {
+        A.set(i, A.get(i) + 1);
+        break;
+      }
+    }
+
+    if (increaseArr) {
+      A.add(0, 1);
+    }
     return A;
   }
 

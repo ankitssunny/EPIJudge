@@ -2,14 +2,14 @@ package epi;
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 public class IntAsArrayMultiply {
   @EpiTest(testDataFile = "int_as_array_multiply.tsv")
   public static List<Integer> multiply(List<Integer> num1, List<Integer> num2) {
     // TODO - you fill in here.
 
-    List<Integer> lower, bigger;
+   /* List<Integer> lower, bigger;
     List<Integer> result = new ArrayList<>();
 
     int cross = 0;
@@ -91,6 +91,39 @@ public class IntAsArrayMultiply {
       int temp = result.get(n);
       result.set(n, result.get(k));
       result.set(k, temp);
+    }*/
+
+    List<Integer> result = new ArrayList<>(Collections.nCopies(num2.size() + num1.size(), 0));
+
+    boolean negative = false;
+    if ((num1.get(0) < 0 && num2.get(0) > 0) || (num1.get(0) > 0 && num2.get(0) < 0)) {
+      negative = true;
+    }
+
+    num1.set(0, Math.abs(num1.get(0)));
+    num2.set(0, Math.abs(num2.get(0)));
+
+
+    for (int i = num1.size() - 1 ; i >= 0; i-- ) {
+      for (int j = num2.size() - 1 ; j >= 0; j-- ) {
+        result.set(i + j + 1, result.get(i + j + 1) + num1.get(i) * num2.get(j));
+        result.set(i + j, result.get(i + j) + result.get(i + j + 1) / 10);
+        result.set(i + j + 1, result.get(i + j + 1) % 10);
+      }
+    }
+
+    int i = 0;
+    while (i < result.size() && result.get(i) == 0) {
+      i++;
+    }
+
+    result = result.subList(i, result.size());
+    if (result.isEmpty()) {
+      return Arrays.asList(0) ;
+    }
+
+    if (negative) {
+      result.set(0, result.get(0) * -1);
     }
 
     return result;

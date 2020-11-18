@@ -12,16 +12,16 @@ public class PrimeSieve {
     // TODO - you fill in here.
 
     List<Integer> primes = new ArrayList<>();
-    List<Boolean> isPrime = new ArrayList<>(Collections.nCopies(n + 1, true));
-    isPrime.set(0, false);
-    isPrime.set(1, false);
+    List<Boolean> currPrimes = new ArrayList<>(Collections.nCopies(n + 1 ,Boolean.TRUE));
+    currPrimes.set(0, Boolean.FALSE);
+    currPrimes.set(1, Boolean.FALSE);
+
 
     for (int i = 2; i <= n; i++) {
-      if(isPrime.get(i)) {
-        primes.add(i);
-        // make false all the multiples of i which is less than n
-        for (int j = i ; j <= n ; j += i) {
-          isPrime.set(j, false);
+      if (currPrimes.get(i)) {
+          primes.add(i);
+        for (int j = i + i ; j <= n ; j += i) {
+          currPrimes.set(j, Boolean.FALSE);
         }
       }
     }

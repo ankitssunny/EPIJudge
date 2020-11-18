@@ -330,7 +330,7 @@ problem_mapping = {
                 "total": 2001
             },
             "Java: NextPermutation.java": {
-                "passed": 1,
+                "passed": 2001,
                 "total": 2001
             },
             "Python: next_permutation.py": {
@@ -358,7 +358,7 @@ problem_mapping = {
                 "total": 7
             },
             "Java: OnlineSampling.java": {
-                "passed": 0,
+                "passed": 7,
                 "total": 7
             },
             "Python: online_sampling.py": {
@@ -372,7 +372,7 @@ problem_mapping = {
                 "total": 6
             },
             "Java: RandomPermutation.java": {
-                "passed": 0,
+                "passed": 6,
                 "total": 6
             },
             "Python: random_permutation.py": {
@@ -386,7 +386,7 @@ problem_mapping = {
                 "total": 9
             },
             "Java: RandomSubset.java": {
-                "passed": 0,
+                "passed": 9,
                 "total": 9
             },
             "Python: random_subset.py": {
@@ -400,7 +400,7 @@ problem_mapping = {
                 "total": 10
             },
             "Java: NonuniformRandomNumber.java": {
-                "passed": 0,
+                "passed": 10,
                 "total": 10
             },
             "Python: nonuniform_random_number.py": {

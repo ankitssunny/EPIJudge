@@ -8,11 +8,26 @@ import epi.test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
+
 public class RandomPermutation {
 
   public static List<Integer> computeRandomPermutation(int n) {
     // TODO - you fill in here.
-    return Collections.emptyList();
+
+    List<Integer> random = new ArrayList<>();
+    Random rand = new Random();
+    for (int i  = 0; i < n; i++) {
+      random.add(i);
+    }
+
+    for (int i = 0; i < n; i++) {
+      // first find a random number between i and k
+      int randomIndex = rand.nextInt(random.size() - i) + i;
+      Collections.swap(random, i , randomIndex);
+    }
+
+    return random;
   }
   private static int factorial(int n) {
     return n <= 1 ? 1 : n * factorial(n - 1);

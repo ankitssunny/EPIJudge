@@ -5,15 +5,53 @@ import epi.test_framework.RandomSequenceChecker;
 import epi.test_framework.TestFailure;
 import epi.test_framework.TimedExecutor;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 public class RandomSubset {
 
   // Returns a random k-sized subset of {0, 1, ..., n - 1}.
   public static List<Integer> randomSubset(int n, int k) {
     // TODO - you fill in here.
-    return Collections.emptyList();
+
+    HashMap<Integer, Integer> map = new HashMap<>();
+    Random gen = new Random();
+
+    for (int i = 0; i < k; ++i) {
+
+      int rand = i + gen.nextInt(n - i);
+
+      Integer ptr1 = map.get(rand);
+      Integer ptr2 = map.get(i);
+
+
+      if (ptr1 == null && ptr2 == null) {
+        map.put(rand, i);
+        map.put(i, rand);
+
+      }
+      if (ptr1 == null && ptr2 != null) {
+
+        map.put(rand, ptr2);
+        map.put(i, rand);
+
+      }
+      if (ptr1 != null && ptr2 == null) {
+        map.put(i, ptr1);
+        map.put(rand, i);
+      }
+      if (ptr1 != null && ptr2 != null) {
+        map.put(i, ptr1);
+        map.put(rand, ptr2);
+      }
+    }
+
+    List<Integer> list = new ArrayList<>();
+
+    for (int i = 0; i < k; i++) {
+      list.add(map.get(i));
+    }
+
+    return list;
   }
   private static boolean randomSubsetRunner(TimedExecutor executor, int n,
                                             int k) throws Exception {

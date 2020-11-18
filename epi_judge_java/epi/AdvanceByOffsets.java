@@ -8,7 +8,7 @@ public class AdvanceByOffsets {
   @EpiTest(testDataFile = "advance_by_offsets.tsv")
   public static boolean canReachEnd(List<Integer> maxAdvanceSteps) {
     // TODO - you fill in here.
-    int furthestReachable = 0, thisReachable = 0;
+   /* int furthestReachable = 0, thisReachable = 0;
 
     for (int i = 0 ; i <= furthestReachable; i++) {
       if (furthestReachable < maxAdvanceSteps.size() - 1 ){
@@ -16,7 +16,21 @@ public class AdvanceByOffsets {
         if (thisReachable > furthestReachable) furthestReachable = thisReachable;
       }
     }
-    return furthestReachable >= maxAdvanceSteps.size() - 1;
+    return furthestReachable >= maxAdvanceSteps.size() - 1;*/
+
+
+   int furthestReachable = 0;
+
+   for (int i = 0 ; i <= furthestReachable && furthestReachable < maxAdvanceSteps.size() - 1 ; i++) {
+
+     int currReachable = i + maxAdvanceSteps.get(i);
+
+     if(currReachable > furthestReachable) {
+       furthestReachable = currReachable;
+     }
+
+   }
+   return furthestReachable >= maxAdvanceSteps.size() - 1;
   }
 
   public static void main(String[] args) {

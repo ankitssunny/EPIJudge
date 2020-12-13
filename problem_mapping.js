@@ -20,7 +20,7 @@ problem_mapping = {
                 "total": 10000
             },
             "Java: Parity.java": {
-                "passed": 0,
+                "passed": 10000,
                 "total": 10000
             },
             "Python: parity.py": {
@@ -472,7 +472,7 @@ problem_mapping = {
                 "total": 10000
             },
             "Java: IsStringPalindromic.java": {
-                "passed": 0,
+                "passed": 10000,
                 "total": 10000
             },
             "Python: is_string_palindromic.py": {
@@ -514,7 +514,7 @@ problem_mapping = {
                 "total": 10000
             },
             "Java: SpreadsheetEncoding.java": {
-                "passed": 0,
+                "passed": 10000,
                 "total": 10000
             },
             "Python: spreadsheet_encoding.py": {
@@ -528,7 +528,7 @@ problem_mapping = {
                 "total": 501
             },
             "Java: ReplaceAndRemove.java": {
-                "passed": 0,
+                "passed": 501,
                 "total": 501
             },
             "Python: replace_and_remove.py": {
@@ -556,7 +556,7 @@ problem_mapping = {
                 "total": 103
             },
             "Java: ReverseWords.java": {
-                "passed": 0,
+                "passed": 103,
                 "total": 103
             },
             "Python: reverse_words.py": {
@@ -570,7 +570,7 @@ problem_mapping = {
                 "total": 40
             },
             "Java: LookAndSay.java": {
-                "passed": 0,
+                "passed": 40,
                 "total": 40
             },
             "Python: look_and_say.py": {
@@ -1984,7 +1984,7 @@ problem_mapping = {
                 "total": 102
             },
             "Java: PhoneNumberMnemonic.java": {
-                "passed": 0,
+                "passed": 102,
                 "total": 102
             },
             "Python: phone_number_mnemonic.py": {

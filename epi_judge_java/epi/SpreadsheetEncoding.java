@@ -6,7 +6,14 @@ public class SpreadsheetEncoding {
 
   public static int ssDecodeColID(final String col) {
     // TODO - you fill in here.
-    return 0;
+
+    int result = 0;
+
+    for (int i = col.length() - 1, j = 0; i >=0; i--, j++) {
+      result += (col.charAt(i) - 64) * Math.pow(26, j);
+    }
+
+    return result;
   }
 
   public static void main(String[] args) {

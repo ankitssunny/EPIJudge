@@ -6,8 +6,20 @@ public class ReverseSublist {
 
   public static ListNode<Integer> reverseSublist(ListNode<Integer> L, int start,
                                                  int finish) {
-    // TODO - you fill in here.
-    return null;
+    ListNode<Integer> dummy = new ListNode<>(0, L);
+    ListNode<Integer> sublist = dummy;
+    int k = 1;
+    while (k++ < start) {
+      sublist = sublist.next;
+    }
+    ListNode<Integer> iter = sublist.next;
+    while (start++ < finish) {
+      ListNode<Integer> temp = iter.next;
+      iter.next = temp.next;
+      temp.next = sublist.next;
+      sublist.next = temp;
+    }
+    return dummy.next;
   }
 
   public static void main(String[] args) {

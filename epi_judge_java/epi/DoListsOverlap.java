@@ -10,9 +10,77 @@ public class DoListsOverlap {
 
   public static ListNode<Integer> overlappingLists(ListNode<Integer> l0,
                                                    ListNode<Integer> l1) {
-    // TODO - you fill in here.
-    return null;
+
+    ListNode<Integer> root0 = IsListCyclic.hasCycle(l0);
+    ListNode<Integer> root1 = IsListCyclic.hasCycle(l1);
+
+    // If both are null that means acyclic that means we can use the acyclic logic.
+    // If one has cycle and other one doesnt then means no overlap.
+
+    if (root0 == null && root1 == null) {
+      return DoTerminatedListsOverlap.overlappingNoCycleLists(l0, l1);
+    }
+    else if( (root0 == null && root1 != null) ||
+            (root1 == null && root0 != null) ) {
+      return null;
+    }
+
+
+    // Third case would be both are cyclic, so we find whether the cycle is disjoint or same.
+
+    ListNode<Integer> temp  = root0;
+    do {
+      temp = temp.next;
+    } while (temp != root0 || temp != root1);
+
+
+    if (temp != root1) {
+      return null; // cycle is disjoint
+    }
+
+    // find the length of the stem for both nodes.
+    // stem is the distance from the start of the node to to root
+    int stem0len = stemLength(l0, root0), stem1len = stemLength(l1, root1);
+
+    // Now find the difference in stem length
+
+    int diff = Math.abs(stem0len - stem1len);
+
+    // Now propagate the longer list diff times ahead so that we both nodes have same length of stem.
+
+    if (stem0len > stem1len) {
+      l0 = propagateAhead(l0, diff);
+    }
+    else {
+      l1 = propagateAhead(l1, diff);
+    }
+
+    while (l0 != l1  && l0 != root0 && l1 != root1) {
+      l0 = l0.next;
+      l1 = l1.next;
+    }
+
+    return l0 == l1 ? l0 : root0;
   }
+
+  public static int stemLength(ListNode<Integer> head, ListNode<Integer> root){
+    int dist = 0;
+
+    while( head != root) {
+      dist++;
+      head = head.next;
+    }
+    return dist;
+  }
+
+  public static ListNode<Integer> propagateAhead(ListNode<Integer> list, int count) {
+    while (count-- > 0) {
+      list = list.next;
+    }
+    return list;
+  }
+
+
   @EpiTest(testDataFile = "do_lists_overlap.tsv")
   public static void
   overlappingListsWrapper(TimedExecutor executor, ListNode<Integer> l0,

@@ -5,15 +5,26 @@ import epi.test_framework.GenericTest;
 import epi.test_framework.TestFailure;
 import epi.test_framework.TimedExecutor;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 public class CopyPostingList {
 
   public static PostingListNode copyPostingsList(PostingListNode l) {
-    // TODO - you fill in here.
-    return null;
+
+    Deque<PostingListNode> stack = new LinkedList<>();
+    int order= 0;
+    while (!stack.isEmpty()) {
+
+      PostingListNode curr = stack.removeFirst();
+
+      if (curr != null && curr.order == -1) {
+        curr.order = order++;
+        stack.addFirst(curr.next);
+        stack.addFirst(curr.next);
+      }
+    }
+
+    return l;
   }
   @EpiUserType(ctorParams = {int.class, int.class})
   public static class SerializedNode {

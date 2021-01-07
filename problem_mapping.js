@@ -834,7 +834,7 @@ problem_mapping = {
                 "total": 203
             },
             "Java: IsListPalindromic.java": {
-                "passed": 0,
+                "passed": 202,
                 "total": 203
             },
             "Python: is_list_palindromic.py": {
@@ -848,7 +848,7 @@ problem_mapping = {
                 "total": 208
             },
             "Java: PivotList.java": {
-                "passed": 0,
+                "passed": 208,
                 "total": 208
             },
             "Python: pivot_list.py": {
@@ -862,7 +862,7 @@ problem_mapping = {
                 "total": 2002
             },
             "Java: IntAsListAdd.java": {
-                "passed": 0,
+                "passed": 2002,
                 "total": 2002
             },
             "Python: int_as_list_add.py": {
@@ -878,7 +878,7 @@ problem_mapping = {
                 "total": 101
             },
             "Java: StackWithMax.java": {
-                "passed": 0,
+                "passed": 101,
                 "total": 101
             },
             "Python: stack_with_max.py": {
@@ -892,7 +892,7 @@ problem_mapping = {
                 "total": 108
             },
             "Java: EvaluateRpn.java": {
-                "passed": 0,
+                "passed": 108,
                 "total": 108
             },
             "Python: evaluate_rpn.py": {
@@ -906,7 +906,7 @@ problem_mapping = {
                 "total": 78
             },
             "Java: IsValidParenthesization.java": {
-                "passed": 0,
+                "passed": 78,
                 "total": 78
             },
             "Python: is_valid_parenthesization.py": {
@@ -920,7 +920,7 @@ problem_mapping = {
                 "total": 255
             },
             "Java: DirectoryPathNormalization.java": {
-                "passed": 0,
+                "passed": 255,
                 "total": 255
             },
             "Python: directory_path_normalization.py": {
@@ -934,7 +934,7 @@ problem_mapping = {
                 "total": 101
             },
             "Java: SunsetView.java": {
-                "passed": 0,
+                "passed": 101,
                 "total": 101
             },
             "Python: sunset_view.py": {
@@ -948,7 +948,7 @@ problem_mapping = {
                 "total": 3852
             },
             "Java: TreeLevelOrder.java": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             },
             "Python: tree_level_order.py": {
@@ -962,7 +962,7 @@ problem_mapping = {
                 "total": 65
             },
             "Java: CircularQueue.java": {
-                "passed": 0,
+                "passed": 65,
                 "total": 65
             },
             "Python: circular_queue.py": {
@@ -976,7 +976,7 @@ problem_mapping = {
                 "total": 65
             },
             "Java: QueueFromStacks.java": {
-                "passed": 0,
+                "passed": 65,
                 "total": 65
             },
             "Python: queue_from_stacks.py": {
@@ -990,7 +990,7 @@ problem_mapping = {
                 "total": 201
             },
             "Java: QueueWithMax.java": {
-                "passed": 0,
+                "passed": 201,
                 "total": 201
             },
             "Python: queue_with_max.py": {
@@ -2702,7 +2702,7 @@ problem_mapping = {
                 "total": 34
             },
             "Java: CopyPostingList.java": {
-                "passed": 0,
+                "passed": 1,
                 "total": 34
             },
             "Python: copy_posting_list.py": {

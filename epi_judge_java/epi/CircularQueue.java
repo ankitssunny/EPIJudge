@@ -4,22 +4,47 @@ import epi.test_framework.EpiUserType;
 import epi.test_framework.GenericTest;
 import epi.test_framework.TestFailure;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 public class CircularQueue {
 
   public static class Queue {
-    public Queue(int capacity) {}
+    public Integer[] arr;
+    int head = 0, tail = 0, size = 0;
+
+    public Queue(int capacity) {
+      this.arr = new Integer[capacity];
+    }
+
     public void enqueue(Integer x) {
-      // TODO - you fill in here.
-      return;
+      if (this.size == this.arr.length) {
+
+        Collections.rotate(Arrays.asList(this.arr), -head);
+        head = 0;
+        tail = this.size;
+        this.arr = Arrays.copyOf(this.arr, this.size * 2);
+      }
+
+      this.arr[this.tail] = x;
+      tail = (tail + 1) % this.arr.length;
+      ++size;
     }
+
     public Integer dequeue() {
-      // TODO - you fill in here.
-      return 0;
+      if (this.size != 0) {
+        --size;
+        int ret = this.arr[head];
+        head = (head + 1) % this.arr.length;
+        return ret;
+      }
+      else {
+        throw new RuntimeException("Empty queue");
+      }
     }
+
     public int size() {
-      // TODO - you fill in here.
-      return 0;
+      return this.size;
     }
     @Override
     public String toString() {

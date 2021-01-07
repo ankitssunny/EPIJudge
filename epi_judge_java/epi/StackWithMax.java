@@ -4,28 +4,55 @@ import epi.test_framework.EpiUserType;
 import epi.test_framework.GenericTest;
 import epi.test_framework.TestFailure;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 public class StackWithMax {
 
-  public static class Stack {
-    public boolean empty() {
-      // TODO - you fill in here.
-      return true;
-    }
-    public Integer max() {
-      // TODO - you fill in here.
-      return 0;
-    }
-    public Integer pop() {
-      // TODO - you fill in here.
-      return 0;
-    }
-    public void push(Integer x) {
-      // TODO - you fill in here.
-      return;
+  public static class ElementWithMax {
+    public int element;
+    public int max;
+
+    ElementWithMax(int element, int max) {
+      this.element = element;
+      this.max = max;
     }
   }
+
+  public static class Stack {
+
+    Deque<ElementWithMax> stack = new LinkedList<>();
+
+    public boolean empty() {
+      return stack.isEmpty();
+    }
+
+    public Integer max() {
+
+      if (empty()) {
+        throw new RuntimeException("Stack Empty");
+      }
+      else {
+        return stack.peekFirst().max;
+      }
+    }
+
+    public Integer pop() {
+
+      if (empty()) {
+        throw new RuntimeException("Stack Empty");
+      }
+      else {
+        return stack.removeFirst().element;
+      }
+    }
+
+    public void push(Integer x) {
+      stack.addFirst(new ElementWithMax(x, Math.max(x, empty() ? x : max())));
+    }
+  }
+
   @EpiUserType(ctorParams = {String.class, int.class})
   public static class StackOp {
     public String op;

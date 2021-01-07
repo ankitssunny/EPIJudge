@@ -4,18 +4,33 @@ import epi.test_framework.EpiUserType;
 import epi.test_framework.GenericTest;
 import epi.test_framework.TestFailure;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 public class QueueFromStacks {
 
   public static class Queue {
+
+    public Deque<Integer> headStack = new LinkedList<>();
+    public Deque<Integer> tailStack = new LinkedList<>();
+
     public void enqueue(Integer x) {
-      // TODO - you fill in here.
+      headStack.addFirst(x);
       return;
     }
     public Integer dequeue() {
-      // TODO - you fill in here.
-      return 0;
+      if (tailStack.isEmpty()) {
+        while (!headStack.isEmpty()) {
+          tailStack.addFirst(headStack.removeFirst());
+        }
+      }
+      if (!tailStack.isEmpty()) {
+        return tailStack.removeFirst();
+      }
+      else {
+        throw new NoSuchElementException("Queue is empty.");
+      }
     }
   }
   @EpiUserType(ctorParams = {String.class, int.class})
